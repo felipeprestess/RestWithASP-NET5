@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "Ki+JXygswM0IaFfsuQqMs9Nmb9PK33JaVqhrOvmCZ+jbKwNpFUb0ZltWs918JkBWbuRO6SOcTFkEdz8dNR2zUQ==",
+  "success": true,
+  "projectFilePath": "D:\\Projetos\\Labs\\RestWithASP-NET5\\RestWithASP-NET5\\RestWithASP-NET5\\01_RestWithASP-NET5ViaVS\\RestWithASP-NET5\\RestWithASP-NET5\\RestWithASP-NET5.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Felipe Prestes\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.12\\microsoft.netcore.app.host.win-x64.5.0.12.nupkg.sha512"
+  ],
+  "logs": []
+}
