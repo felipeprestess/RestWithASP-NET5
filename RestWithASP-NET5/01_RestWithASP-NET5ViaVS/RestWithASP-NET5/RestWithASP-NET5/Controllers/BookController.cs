@@ -1,31 +1,34 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using RestWithASP_NET5.Business.Implementations;
-using RestWithASP_NET5.Models;
+using RestWithASP_NET5.Data.VO;
+using RestWithASP_NET5.Hypermedia.Filters;
 
 namespace RestWithASP_NET5.Controllers
 {
     [ApiVersion("1.0")]
     [ApiController]
     [Route("api/[controller]/v{version:apiVersion}")]
-    public class BooksController : ControllerBase
+    public class BookController : ControllerBase
     {
-        private readonly ILogger<PersonController> _logger;
+        private readonly ILogger<BookController> _logger;
         private readonly IBookBusiness _bookBusiness;
 
-        public BooksController(ILogger<PersonController> logger, IBookBusiness bookBusiness)
+        public BookController(ILogger<BookController> logger, IBookBusiness bookBusiness)
         {
             _logger = logger;
             _bookBusiness = bookBusiness;
         }
 
         [HttpGet]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get()
         {
             return Ok(_bookBusiness.FindAll());
         }
 
         [HttpGet("{id}")]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get(long id)
         {
             var person = _bookBusiness.FindById(id);
@@ -38,7 +41,8 @@ namespace RestWithASP_NET5.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] Book book)
+        [TypeFilter(typeof(HyperMediaFilter))]
+        public IActionResult Post([FromBody] BookVO book)
         {
             if (book == null)
             {
@@ -49,7 +53,8 @@ namespace RestWithASP_NET5.Controllers
         }
 
         [HttpPut]
-        public IActionResult Update([FromBody] Book book)
+        [TypeFilter(typeof(HyperMediaFilter))]
+        public IActionResult Update([FromBody] BookVO book)
         {
             if (book == null)
             {
